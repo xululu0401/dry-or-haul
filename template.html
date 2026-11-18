@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>别给水分付运费 · 就地卖、原样拉去卖、晒干烧炭了再拉，哪样到手多</title>
+<meta name="description" content="一批鲜货可以就地卖、原样拉到远处卖，也可以先晒干、烧成炭，变轻了再拉。填货量、两边价格、运费和出成率，算三条路各到手多少、拆开走怎么分最划算、市场多远以后加工再拉才合算。">
+<style>
+  :root{--bg:#f3f0ea;--paper:#fff;--ink:#2a2622;--ink2:#575049;--mut:#8d857c;--line:#e0d9ce;--hi:#a4521f;--hi2:#f6e6d8;--bad:#b23b2e;
+    --ra:#7b8a5a;--rb:#3f6e8c;--rc:#a4521f;--rm:#2a2622}
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0}
+  body{background:var(--bg);color:var(--ink);font:16px/1.6 -apple-system,BlinkMacSystemFont,"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:1080px;margin:0 auto;padding:22px 14px 72px}
+  h1{font-size:30px;line-height:1.25;margin:0 0 6px;letter-spacing:.03em}
+  .sub{color:var(--ink2);margin:0;font-size:15.5px}
+  .muted{color:var(--mut);font-size:13.5px}
+  .hide{display:none !important}
+  button,input{font:inherit}
+  button{cursor:pointer}
+  .chips{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0 4px}
+  .chip{background:var(--paper);border:1px solid var(--line);border-radius:999px;padding:5px 12px;font-size:13.5px;color:var(--ink2)}
+  .chip[aria-pressed="true"]{background:var(--ink);border-color:var(--ink);color:#fff}
+  .card{background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:16px;min-width:0;margin-top:14px}
+  .card h2{font-size:16px;margin:0 0 10px}
+  .grid3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+  .grp{border:1px solid var(--line);border-radius:10px;padding:10px 12px 4px;min-width:0}
+  .grp h3{font-size:14px;margin:0 0 6px;color:var(--ink2)}
+  .f{display:grid;grid-template-columns:minmax(0,1fr) 112px;align-items:center;gap:8px;margin-bottom:8px}
+  .f label{font-size:14px;color:var(--ink2);overflow-wrap:anywhere}
+  .f input{width:100%;min-width:0;border:1px solid var(--line);border-radius:6px;padding:5px 8px;background:#fdfcfa;text-align:right}
+  .f input.t{text-align:left}
+  .f input.bad{border-color:var(--bad);background:#fff4f2}
+  .big{font-size:20px;line-height:1.55;font-weight:700;margin:0 0 8px;overflow-wrap:anywhere}
+  .why{color:var(--ink2);font-size:14.5px;margin:0;overflow-wrap:anywhere}
+  .err{background:#fff4f2;border:1px solid #f0c9c2;color:var(--bad);border-radius:8px;padding:10px 14px;overflow-wrap:anywhere}
+  .err ul{margin:4px 0 0;padding-left:20px}
+  /* 三条路并排 */
+  .routes{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:12px}
+  .route{border:1px solid var(--line);border-radius:10px;padding:12px;min-width:0;background:#fdfcfa;position:relative}
+  .route.win{border:2px solid var(--hi);background:#fffaf5}
+  .route .tg{display:inline-block;font-size:12.5px;border-radius:4px;padding:0 6px;color:#fff;margin-bottom:4px}
+  .route .net{font-size:24px;font-weight:800;margin:2px 0;white-space:nowrap}
+  .route .net.neg{color:var(--bad)}
+  .route table{width:100%;border-collapse:collapse;font-size:13.5px}
+  .route td{padding:2px 0;color:var(--ink2);vertical-align:top}
+  .route td.v{text-align:right;color:var(--ink);white-space:nowrap;padding-left:8px}
+  .route .win-tag{position:absolute;top:10px;right:10px;font-size:12px;color:var(--hi);font-weight:700}
+  .mix{margin-top:12px;border:2px solid var(--ink);border-radius:10px;padding:12px;background:#fffdf8}
+  .mix .seg{display:flex;height:22px;border-radius:5px;overflow:hidden;margin:8px 0 6px;border:1px solid var(--line)}
+  .mix .seg i{display:block;height:100%}
+  .legend{display:flex;flex-wrap:wrap;gap:4px 14px;font-size:13px;color:var(--ink2)}
+  .legend span::before{content:"";display:inline-block;width:12px;height:12px;border-radius:3px;margin-right:4px;vertical-align:-1px;background:var(--c)}
+  #chart{width:100%;display:block}
+  .acts{display:flex;flex-direction:column;gap:8px}
+  .act{text-align:left;background:var(--hi2);border:1px solid #ecd2bc;color:var(--hi);border-radius:8px;padding:8px 12px;overflow-wrap:anywhere}
+  .act small{color:var(--ink2);display:block}
+  .row{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+  .btn{background:var(--paper);border:1px solid var(--line);border-radius:8px;padding:6px 12px;font-size:14px}
+  .btn.p{background:var(--ink);border-color:var(--ink);color:#fff}
+  .how{font-size:14px;color:var(--ink2)}
+  .how li{margin-bottom:4px}
+  @media (max-width:820px){.grid3,.routes{grid-template-columns:minmax(0,1fr)}}
+  @media (max-width:420px){h1{font-size:25px}.f{grid-template-columns:minmax(0,1fr) 100px}.big{font-size:18px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>别给水分付运费</h1>
+  <p class="sub">十斤木头烧出一斤炭，古人为啥要先烧再卖？一批鲜货，就地卖、原样拉到远处卖、先晒干烧炭了再拉，填上价钱和运费，算哪样到手多、拆开走怎么分、市场多远以后加工才合算。</p>
+  <div class="chips" id="presets" aria-label="换个例子"></div>
+  <p class="muted" id="presetNote"></p>
+
+  <div class="card">
+    <h2>这批货 <span class="muted" id="saveTag"></span></h2>
+    <div class="grid3">
+      <div class="grp"><h3>货和就地卖</h3>
+        <div class="f"><label for="name">货叫什么</label><input class="t" id="name" maxlength="8"></div>
+        <div class="f"><label for="qty">有多少（公斤）</label><input id="qty" inputmode="numeric"></div>
+        <div class="f"><label for="p0">就地卖价（元/公斤）</label><input id="p0" inputmode="decimal"></div>
+        <div class="f"><label for="dist">到市场多远（公里）</label><input id="dist" inputmode="numeric"></div>
+      </div>
+      <div class="grp"><h3>原样拉去卖 · 车费</h3>
+        <div class="f"><label for="p1">市场上原样卖（元/公斤）</label><input id="p1" inputmode="decimal"></div>
+        <div class="f"><label for="cap1">原样每车最多装（公斤）</label><input id="cap1" inputmode="numeric"></div>
+        <div class="f"><label for="fee">每趟固定费（元）</label><input id="fee" inputmode="decimal"></div>
+        <div class="f"><label for="perkm">每公里运费（元，含回程）</label><input id="perkm" inputmode="decimal"></div>
+      </div>
+      <div class="grp"><h3>加工了再拉</h3>
+        <div class="f"><label for="pv">怎么加工</label><input class="t" id="pv" maxlength="6"></div>
+        <div class="f"><label for="pn">加工后叫什么</label><input class="t" id="pn" maxlength="8"></div>
+        <div class="f"><label for="yld">出成率（%）</label><input id="yld" inputmode="decimal"></div>
+        <div class="f"><label for="proc">加工费（元/公斤原样货）</label><input id="proc" inputmode="decimal"></div>
+        <div class="f"><label for="p2" id="p2l">市场上加工后卖（元/公斤）</label><input id="p2" inputmode="decimal"></div>
+        <div class="f"><label for="cap2" id="cap2l">加工后每车最多装（公斤）</label><input id="cap2" inputmode="numeric"></div>
+      </div>
+    </div>
+    <p class="muted" style="margin:8px 0 0">出成率 = 加工后重量 ÷ 原样重量。干货蓬松，一车常常装不到载重，按实际能装的填。最后一车没装满也按一趟算。</p>
+  </div>
+
+  <div class="card" id="errBox" role="alert"></div>
+  <div class="card" id="okBox">
+    <p class="big" id="headline"></p>
+    <p class="why" id="why"></p>
+    <div class="routes" id="routes"></div>
+    <div class="mix" id="mixBox"></div>
+  </div>
+
+  <div class="card" id="chartCard">
+    <h2>市场离得越远，三条路各到手多少</h2>
+    <div class="legend" id="legend"></div>
+    <svg id="chart" role="img" aria-label="距离与到手钱的折线图"></svg>
+    <p class="muted" id="chartNote" style="margin:4px 0 0"></p>
+  </div>
+
+  <div class="card" id="actCard">
+    <h2>改一样试试</h2>
+    <div class="acts" id="acts"></div>
+  </div>
+
+  <div class="card">
+    <h2>带走结果</h2>
+    <div class="row">
+      <button type="button" class="btn p" id="dlPng">结果卡 PNG</button>
+      <button type="button" class="btn" id="dlCsv">明细 CSV</button>
+      <button type="button" class="btn" id="dlMd">说明 MD</button>
+      <button type="button" class="btn" id="dlJson">备份 JSON</button>
+      <button type="button" class="btn" id="impJson">导入备份</button>
+      <button type="button" class="btn" id="reset">恢复默认</button>
+      <input type="file" id="impFile" accept=".json,application/json" class="hide">
+      <span class="muted" id="impMsg"></span>
+    </div>
+  </div>
+
+  <div class="card how">
+    <h2>怎么算的</h2>
+    <ul>
+      <li>三条路：就地卖原样的货；原样装车拉到市场卖；先加工（晒干、烧炭、脱水……），变轻了再装车拉去卖。也可以把一批货拆开，分几条路走。</li>
+      <li>到手 = 卖货收入 − 加工费 − 运费。一趟车 = 每趟固定费 + 每公里运费 × 单程公里数；原样的货和加工后的货分开装车，最后一车没装满也按一趟算。</li>
+      <li>拆开走：把原样拉几车、加工后拉几车每种组合都试一遍，车数定了以后每公斤到手多的那条路先装满，剩下的就地卖。到手钱一样时，选趟数少的，再选就地卖得多的、加工得少的。</li>
+      <li>钱按千分之一分、重量按克用整数算，不用小数近似；显示时四舍五入到分。</li>
+      <li>不算的：加工要几天、晾晒场地和人工（想算就折进加工费）、天气、压价、货在路上的损耗、市场一天吃不吃得下这么多。价格、运费、出成率全是自己填的，本页不联网、不查行情。</li>
+      <li>默认的辣椒、柴和笋都是虚构示例，数字不代表任何地方的真实价格或出成率。</li>
+    </ul>
+  </div>
+</div>
+<script src="./core.js"></script>
+<script src="./ui.js"></script>
+</body>
+</html>

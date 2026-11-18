@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="1200" viewBox="0 0 1200 1200">
+  <rect width="1200" height="1200" fill="#f3f0ea"/>
+  <rect x="60" y="60" width="1080" height="1080" rx="18" fill="#ffffff"/>
+  <text x="140" y="230" font-family="-apple-system,'PingFang SC','Microsoft YaHei',sans-serif" font-size="112" font-weight="800" fill="#2a2622">别给水分付运费</text>
+  <text x="140" y="305" font-family="-apple-system,'PingFang SC','Microsoft YaHei',sans-serif" font-size="38" fill="#575049">就地卖、原样拉、晒干烧炭了再拉，哪样到手多</text>
+  <text x="140" y="430" font-family="-apple-system,'PingFang SC','Microsoft YaHei',sans-serif" font-size="44" font-weight="700" fill="#a4521f">拆开走最划算</text>
+  <text x="140" y="520" font-family="-apple-system,'PingFang SC','Microsoft YaHei',sans-serif" font-size="80" font-weight="800" fill="#2a2622">到手 7,850 元</text>
+  <rect x="140" y="565" width="153.3" height="40" fill="#7b8a5a"/><rect x="293.3" y="565" width="766.7" height="40" fill="#a4521f"/>
+  <text x="140" y="655" font-family="-apple-system,'PingFang SC','Microsoft YaHei',sans-serif" font-size="28" fill="#575049">500 公斤就地卖 · 2,500 公斤晒干成 450 公斤正好 1 车</text>
+  <text x="140" y="736" font-family="-apple-system,'PingFang SC','Microsoft YaHei',sans-serif" font-size="36" font-weight="700" fill="#2a2622">全部就地卖</text>
+  <rect x="440" y="708" width="440" height="36" rx="6" fill="#eee8de"/><rect x="440" y="708" width="336.3" height="36" rx="6" fill="#7b8a5a"/>
+  <text x="1060" y="736" text-anchor="end" font-family="-apple-system,'PingFang SC','Microsoft YaHei',sans-serif" font-size="32" font-weight="700" fill="#2a2622">6,000</text>
+  <text x="140" y="846" font-family="-apple-system,'PingFang SC','Microsoft YaHei',sans-serif" font-size="36" font-weight="700" fill="#2a2622">全部原样拉去卖</text>
+  <rect x="440" y="818" width="440" height="36" rx="6" fill="#eee8de"/><rect x="440" y="818" width="431.6" height="36" rx="6" fill="#3f6e8c"/>
+  <text x="1060" y="846" text-anchor="end" font-family="-apple-system,'PingFang SC','Microsoft YaHei',sans-serif" font-size="32" font-weight="700" fill="#2a2622">7,700</text>
+  <text x="140" y="956" font-family="-apple-system,'PingFang SC','Microsoft YaHei',sans-serif" font-size="36" font-weight="700" fill="#2a2622">全部晒干再拉</text>
+  <rect x="440" y="928" width="440" height="36" rx="6" fill="#eee8de"/><rect x="440" y="928" width="418.1" height="36" rx="6" fill="#a4521f"/>
+  <text x="1060" y="956" text-anchor="end" font-family="-apple-system,'PingFang SC','Microsoft YaHei',sans-serif" font-size="32" font-weight="700" fill="#2a2622">7,460</text>
+  <text x="140" y="1090" font-family="-apple-system,'PingFang SC','Microsoft YaHei',sans-serif" font-size="24" fill="#8d857c">鲜辣椒 3,000 公斤 · 市场 200 公里 · 数字是虚构示例 · 价格运费自己填</text>
+</svg>
